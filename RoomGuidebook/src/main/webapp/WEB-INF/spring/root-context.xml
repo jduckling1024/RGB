@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	 <!-- MySQL dataSource -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"> 
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/> 
+        <property name="url" value="jdbc:mysql://localhost/rgb?useSSL=false&amp;serverTimezone=UTC"/> 
+        <property name="username" value="YJ"/> 
+        <property name="password" value="jduckling1024"/>
+    </bean>
+</beans>
