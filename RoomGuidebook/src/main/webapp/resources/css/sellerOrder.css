@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+/* 사이드바 스타일 */
+.sidenav {
+    height:100%;
+    width: 250px;
+    position: fixed;
+    z-index:1;
+    top: 0;
+    left: 0;
+    background-color: #424242;
+    overflow-x: hidden;
+    transition:0.5s ease-in-out;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.2s ease-in-out;
+}
+.sidenav h3{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.2s ease-in-out;
+}
+.sidenav a:hover, .offcanvas a:focus {
+    color: #a7bcff;
+}
+.content {
+    margin-left: 20%;
+    padding : 1px 16px;
+}
+#functionName{
+    width:85%; 
+    height:50px; 
+    line-height: 50px;
+    margin-top: 10px;
+    margin-left: 10%;
+    text-align : center;
+    color :white;
+    background-color:#424242; 
+    border-left:1px solid #000000; 
+    border-right:1px solid
+}
+.category ul li{
+    float:left;
+    list-style: none;
+    margin-right: 20px;
+}
+.category td{
+width : 10%;
+}
+.searchBtn{
+width: 70px;
+height: 30px;
+border-radius: 3px;
+font-size: 17px;
+color: #fff;
+background-color: #424242;
+}
+.searchBtn2{
+    margin-left:15px;
+    width: 70px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 17px;
+    color: #fff;
+    background-color: #424242;
+    }
+
+.filterWrapper{
+padding:5px;
+width:90%;
+height:220px; 
+background-color:#c9c9c9; 
+border-left:1px solid #000000; 
+border-right:1px solid;
+border-top : 1px solid;
+border-bottom:1px solid;
+}
+.buttonGroup ul li
+{
+float:left;
+list-style: none;
+margin-left:15px;
+}
+.modifyBtn{
+margin-left :850px;
+width: 70px;
+height: 30px;
+border-radius: 3px;
+font-size: 17px;
+color: #fff;
+background-color: #424242;
+}
+.deleteBtn{
+margin-left :10px;
+width: 70px;
+height: 30px;
+border-radius: 3px;
+font-size: 17px;
+color: #fff;
+background-color: #424242;
+}
+.orderTable{
+margin-top: 3%;
+line-height: 30px;
+width : 90%;
+border-top: 1px solid #cccccc;
+border-left :1px solid #cccccc;
+}
+.orderTable td{
+padding:1px 0; width : 50px;
+text-align: center;
+border-right: 1px solid #cccccc;
+border-bottom:1px solid #cccccc;
+}
+.orderTable th{
+background-color: #e9e9e9;
+}
+.menu{
+margin-left:5%;
+width : 150px;
+text-align: center;
+}
+.box select {
+background-color: #ffffff;
+color: black;
+padding: 12px;
+width: 250px;
+border: none;
+font-size: 15px;
+box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+-webkit-appearance: button;
+appearance: button;
+outline: none;
+}
+.box::before {
+content: "\f13a";
+font-family: FontAwesome;
+position: absolute;
+top: 0;
+right: 0;
+width: 20%;
+height: 25px;
+text-align: center;
+font-size: 15px;
+line-height: 30px;
+color: rgba(255, 255, 255, 0.5);
+background-color: rgba(255, 255, 255, 0.1);
+pointer-events: none;
+}
+.box:hover::before {
+color: rgba(255, 255, 255, 0.6);
+background-color: rgba(255, 255, 255, 0.2);
+}
+.box select option {
+padding: 30px;
+}
+.category input[type="text"] { 
+width: 360px; /* 원하는 너비 설정 */ 
+height: 15px; /* 높이값 초기화 */ 
+line-height : normal; /* line-height 초기화 */ 
+padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */ 
+font-family: inherit; /* 폰트 상속 */ 
+border: 1px solid #999; 
+outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */ 
+-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
+-moz-appearance: none; 
+appearance: none; }
+
+.category input[type="date"] { 
+width: 100%; /* 원하는 너비 설정 */ 
+height: 15px; /* 높이값 초기화 */ 
+line-height : normal; /* line-height 초기화 */ 
+padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */ 
+font-family: inherit; /* 폰트 상속 */ 
+border: 1px solid #999; 
+outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */ 
+-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
+-moz-appearance: none; 
+appearance: none;
+}

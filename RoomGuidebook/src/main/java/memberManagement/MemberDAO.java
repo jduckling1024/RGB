@@ -33,9 +33,43 @@ public class MemberDAO {
 		System.out.println(member.getName());
 		System.out.println(member.getPhoneNum());
 		System.out.println(member.getEmail());
+		System.out.println(member.getAddress());
 		
-//		conn = dataSource.getConnection();
-
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			sql = "insert into rgb.user values (?, ?, ?, 1);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getId());
+			psmt.setString(2, member.getPassword());
+			psmt.setString(3, member.getName());
+			psmt.executeUpdate();
+			
+			sql = "insert into rgb.member values(?, ?, ?, ?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getId());
+			psmt.setString(2,  member.getPhoneNum());
+			psmt.setString(3, member.getAddress());
+			psmt.setString(4, member.getEmail());
+			psmt.executeUpdate();
+			conn.commit();
+		} 
+		catch (SQLException e) {
+			conn.rollback();
+			throw new SQLException();
+		} finally {
+			conn.setAutoCommit(true);
+			
+			if(res != null) {
+				res.close();
+			}
+			if(psmt != null) {
+				psmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
 	}
 	
 	public void update(MemberDTO member) throws SQLException{
@@ -66,6 +100,16 @@ public class MemberDAO {
 			memberDTO.setPhoneNum(res.getString(6));
 			memberDTO.setAddress(res.getString(7));
 			memberDTO.setEmail(res.getString(8));
+		}
+		
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
 		}
 		
 		return memberDTO;

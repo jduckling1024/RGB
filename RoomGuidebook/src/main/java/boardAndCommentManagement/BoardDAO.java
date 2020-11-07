@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import dto.BoardDTO;
 import dto.ImageDTO;
+import dto.LikeDTO;
 
 @Repository("boardDAO")
 public class BoardDAO {
@@ -25,33 +26,63 @@ public class BoardDAO {
     ResultSet res;
     String sql;
     
-	public List<BoardDTO> getList(int page) throws SQLException {
+	public List<Object[]> getList(String name, int page) throws SQLException {
         conn = dataSource.getConnection();
-        sql = "select * \r\n"
-        		+ "from board \r\n"
-        		+ "where id > 0\r\n"
-        		+ "order by board.id desc\r\n"
-        		+ "limit ?, 2;";
+        sql = "SELECT *\r\n"
+        		+ "FROM (SELECT board.id, board.memberId, image.path, board.likeCnt, board.date FROM board left join image on board.id = image.divisionId where image.use = 204) as tempImage\r\n"
+        		+ "LEFT JOIN (SELECT * FROM rgb.like as likeIt WHERE likeIt.memberId = ?) as likeIt \r\n"
+        		+ "ON tempImage.id = likeIt.boardId\r\n"
+        		+ "ORDER BY tempImage.id DESC\r\n"
+        		+ "LIMIT ?, 3;";
         psmt = conn.prepareStatement(sql);
-        psmt.setInt(1, 2 * (page - 1));
+        psmt.setString(1, name);
+        psmt.setInt(2, 3 * (page - 1));
         
         res = psmt.executeQuery();
-        
-        List<BoardDTO> boardList = new ArrayList<BoardDTO>();
+
+        List<Object[]> list = new ArrayList<Object[]>();
         
         while(res.next()) {
         	BoardDTO boardDTO = new BoardDTO();
+        	ImageDTO imageDTO = new ImageDTO();
+        	LikeDTO likeDTO = new LikeDTO();
+        	
+        	Object[] obj = new Object[3];
+        	
         	boardDTO.setBoardId(res.getInt(1));
         	boardDTO.setMemberId(res.getString(2));
-        	boardDTO.setTitle(res.getString(3));
-        	boardDTO.setContent(res.getString(4));
+        	imageDTO.setPath(res.getString(3));
+        	boardDTO.setLikeCnt(res.getInt(4));
         	boardDTO.setDate(res.getString(5));
-        	boardDTO.setLikeCnt(res.getInt(6));
-        	boardDTO.setCommentCnt(res.getInt(7));
-        	boardList.add(boardDTO); // 일단 다 받아오기는 했는데 내용은 안받아와도 될 듯
+        	likeDTO.setMemberId(res.getString(6));
+        	
+        	obj[0] = boardDTO;
+        	obj[1] = imageDTO;
+        	obj[2] = likeDTO;
+        	
+        	list.add(obj);
+        	
+//        	boardDTO.setBoardId(res.getInt(1));
+//        	boardDTO.setMemberId(res.getString(2));
+//        	boardDTO.setTitle(res.getString(3));
+//        	boardDTO.setContent(res.getString(4));
+//        	boardDTO.setDate(res.getString(5));
+//        	boardDTO.setLikeCnt(res.getInt(6));
+//        	boardDTO.setCommentCnt(res.getInt(7));
+//        	boardList.add(boardDTO); // 일단 다 받아오기는 했는데 내용은 안받아와도 될 듯
         }
+        
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
        
-        return boardList;
+        return list;
 	}
 	
 	public Object[] get(int no) throws SQLException {

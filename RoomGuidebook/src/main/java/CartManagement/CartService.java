@@ -18,11 +18,11 @@ public class CartService {
 		return cartDAO.getList(id);
 	}
 
-	public void register(CartDTO cartDTO) {
-		
+	public void register(CartDTO cartDTO) throws SQLException {
+		cartDAO.register(cartDTO);
 	}
 
-	public void delete(int id) {
-		
+	public void delete(String[] list) throws SQLException {
+		cartDAO.delete(list);
 	}
 }

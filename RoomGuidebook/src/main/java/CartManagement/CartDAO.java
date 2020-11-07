@@ -27,9 +27,10 @@ public class CartDAO {
 	
 	public List<Object[]> getList(String id) throws SQLException{
 		conn = dataSource.getConnection();
-		sql = "SELECT * \r\n"
-				+ "FROM cart, product, image\r\n"
-				+ "where memberId = ? and image.use = 201 and cart.productId = image.divisionId and cart.productId = product.id;";
+		sql = "select *, (cart.count * product.price) as eachTotal\r\n"
+				+ "from cart, product, image\r\n"
+				+ "where memberId = ? and cart.productId = product.id and product.id = image.divisionId\r\n"
+				+ "and image.use = 201;";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, id);
 		res = psmt.executeQuery();
@@ -42,25 +43,78 @@ public class CartDAO {
 			Object[] obj = new Object[3];
 			cartDTO.setMemberId(res.getString(1));
 			cartDTO.setCount(res.getInt(3));
+			productDTO.setId(res.getInt(2));
 			productDTO.setName(res.getString(5));
-			productDTO.setPrice(res.getInt(11));
 			productDTO.setBrand(res.getString(13));
 			productDTO.setColor(res.getString(17));
-			imageDTO.setPath(res.getString(21));
+			imageDTO.setPath(res.getString(21)); 
+			productDTO.setPrice(res.getInt(22));
 			obj[0] = cartDTO;
 			obj[1] = productDTO;
 			obj[2] = imageDTO;
 			cartList.add(obj);
 		}
 		
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		
 		return cartList;
 	}
 	
-	public void register(CartDTO cartDTO) {
+	public void register(CartDTO cartDTO) throws SQLException {
+		conn = dataSource.getConnection();
+		sql = "INSERT INTO cart (`memberId`, `productId`, `count`) VALUES (?, ?, ?)\r\n"
+				+ "ON DUPLICATE KEY UPDATE count = count + 1;";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, cartDTO.getMemberId());
+		psmt.setInt(2, cartDTO.getProductId());
+		psmt.setInt(3, cartDTO.getCount());
 		
+		psmt.executeUpdate();
+		
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
 	}
 	
-	public void delete(int id) {
+	public void delete(String[] list) throws SQLException {
+		conn = dataSource.getConnection();
+		sql = "DELETE FROM cart WHERE `memberId` = 'jduck1024' AND productId = ?";
+		for(int i = 0; i < list.length - 1; i++) {
+			sql += " OR productId = ?";
+		}
 		
+		sql += ";";
+		
+		psmt = conn.prepareStatement(sql);
+		for(int i = 0; i < list.length; i++) {
+			psmt.setString(i + 1, list[i]);
+		}
+		
+		System.out.println(sql);
+		psmt.executeUpdate();
+		
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
 	}
 }

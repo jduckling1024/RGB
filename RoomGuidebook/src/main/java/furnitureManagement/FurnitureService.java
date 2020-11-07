@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dto.ImageDTO;
+
 @Service("furnitureService")
 public class FurnitureService {
 
@@ -21,7 +23,11 @@ public class FurnitureService {
 		return furnitureDAO.get(id);
 	}
 	
-	public List<Object[]> search(String word) throws SQLException {
-		return furnitureDAO.search(word);
+	public List<Object[]> search(int id, String word) throws SQLException {
+		return furnitureDAO.search(id, word);
+	}
+	
+	public Object[] arrange(int id) throws SQLException{
+		return furnitureDAO.arrange(id);
 	}
 }

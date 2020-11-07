@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dto.MemberDTO;
+import dto.SellerDTO;
 import dto.UserDTO;
 
 @Repository("loginDAO")
@@ -18,9 +19,12 @@ public class LoginDAO {
    @Autowired
    BasicDataSource dataSource;
    
+   final static int MEMBER = 1;
+   final static int SELLER = 2;
+   
    public UserDTO login(UserDTO user) {
-      UserDTO userDTO = new UserDTO(); 
-      MemberDTO memberDTO = new MemberDTO(); // 상황에 따라 얘나 SellerDTO로 가야할 듯
+      MemberDTO memberDTO = new MemberDTO();
+      SellerDTO sellerDTO = new SellerDTO();
       
       Connection conn = null;
       Statement st = null;
@@ -28,17 +32,31 @@ public class LoginDAO {
          conn = dataSource.getConnection();
          st = conn.createStatement();
          ResultSet rs = st.executeQuery("SELECT * FROM user where user.id = \""+ user.getId() +"\" and user.password = \""+ user.getPassword() +"\";");
-         while(rs.next()) {
-            memberDTO.setId(rs.getString(1));
-            memberDTO.setName(rs.getString(3));
-         }
          
-         memberDTO.setAutority(0);
+         while(rs.next()) {
+        	int autority = rs.getInt(4);
+        	
+        	if(autority == MEMBER) {
+        		 memberDTO.setId(rs.getString(1));
+                 memberDTO.setName(rs.getString(3));
+                 memberDTO.setAutority(autority);
+        	}else if(autority == SELLER) {
+        		sellerDTO.setId(rs.getString(1));
+        		sellerDTO.setName(rs.getString(3));
+        		sellerDTO.setAutority(autority);
+        	}
+         }
       } catch (SQLException e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
+		
+      if(memberDTO != null) {
+    	  return memberDTO;
+      }else if(sellerDTO != null) {
+    	  return sellerDTO;
+      }
       
-      return memberDTO;
+      return null;
    }
 }

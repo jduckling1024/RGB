@@ -12,8 +12,8 @@ public class BoardService {
 	@Autowired
 	BoardDAO boardDAO;
 	
-	public List<BoardDTO> getList(int page) throws SQLException{
-		return boardDAO.getList(page);
+	public List<Object[]> getList(String name, int page) throws SQLException{
+		return boardDAO.getList(name, page);
 	}
 	
 	public Object[] get(int no) throws SQLException {

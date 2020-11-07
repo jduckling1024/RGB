@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mysql.fabric.Response;
 
 import dto.MemberDTO;
+import dto.SellerDTO;
 import dto.UserDTO;
 import loginManagement.LoginService;
 
@@ -26,23 +27,31 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 
+	final static int MEMBER = 1;
+	final static int SELLER = 2;
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
 		return "/login/login";
 	}
 
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public String login(HttpSession session, @ModelAttribute("user") UserDTO user, RedirectAttributes ra) throws IOException {
+	public String login(HttpSession session, @ModelAttribute("user") UserDTO user, RedirectAttributes ra)
+			throws IOException {
 		UserDTO userDTO = loginService.login(user);
 
 		if (userDTO.getId() != null) {
-			if(userDTO.getAutority() == 0) {
-				MemberDTO memberDTO = (MemberDTO)userDTO;
+			if (userDTO.getAutority() == MEMBER) {
+				MemberDTO memberDTO = (MemberDTO) userDTO;
 				session.setAttribute("member", memberDTO);
-//				ra.addFlashAttribute("result", "success");
+				ra.addFlashAttribute("result", "loginSucceeded");
 				return "redirect:/main";
-			}else {
-				//판매자 페이지
+			} else if(userDTO.getAutority() == SELLER){
+				SellerDTO sellerDTO = (SellerDTO) userDTO;
+				session.setAttribute("seller", sellerDTO);
+				ra.addFlashAttribute("result", "loginSucceeded");
+				return "redirect:/getProductList";
+				// 판매자 페이지
 			}
 		}
 
@@ -51,8 +60,9 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, RedirectAttributes ra) {
 		session.invalidate();
+		ra.addFlashAttribute("result", "logout");
 		return "redirect:/main";
 	}
 }

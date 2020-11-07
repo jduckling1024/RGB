@@ -33,13 +33,15 @@ public class MemberController {
 		try {
 			memberService.register(member);
 		
-			ra.addAttribute("result", "success");
+			ra.addAttribute("result", "registerMemberSucceeded");
+			return "redirect:/main"; // 혹시나 네트워크 문제로 실패하면 그 창 가만히 있게 하고싶다 흐음...
 			// 성공 메시지 띄우고 메인으로 가는가 로그인창으로 가는가?
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null; // 혹시나 네트워크 문제로 실패하면 그 창 가만히 있게 하고싶다
+		ra.addAttribute("result", "registerMemberFailed");
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateMemberView", method = RequestMethod.POST)

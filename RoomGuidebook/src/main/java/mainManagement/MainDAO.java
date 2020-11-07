@@ -52,6 +52,16 @@ public class MainDAO {
 			imageList.add(image);
 		}
         
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		
 		return imageList;
 	}
 }

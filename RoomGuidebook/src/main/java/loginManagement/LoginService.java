@@ -11,6 +11,5 @@ public class LoginService {
 	LoginDAO loginDAO;
 	public UserDTO login(UserDTO user) {
 		return loginDAO.login(user);
-		
 	}
 }
