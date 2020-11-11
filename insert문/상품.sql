@@ -1,0 +1,17 @@
+/*
+-- Query: SELECT * FROM rgb.product
+LIMIT 0, 1000
+
+-- Date: 2020-11-12 00:00
+*/
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (1,'프렌즈 스틸 데스크 3size','narae8585',304,409,1001,'2020-10-09',82000,'색상은 화이트, 윌넛, 블랙 3가지 색상이 준비되어있습니다.','이케아',150,100,200,'black');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (2,'프렌즈 스틸 데스크 3size','narae8585',304,409,100,'2020-10-09',82000,'색상은 화이트, 윌넛, 블랙 3가지 색상이 준비되어있습니다.','이케아',150,100,200,'white');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (3,'컬러스토리 와이드 서랍장 5단','tomotomoo',305,411,500,'2020-10-08',59900,'공간이 예뻐지는, 리빙박스와 함께 사용하는 컬러 스토리 서랍장입니다. 한 달간 할인된 가격으로 판매됩니다 !!! ','샤바스',60,43,102,'pink');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (4,'컬러스토리 와이드 서랍장 5단','tomotomoo',305,411,500,'2020-10-08',59900,'공간이 예뻐지는, 리빙박스와 함께 사용하는 컬러 스토리 서랍장입니다. 한 달간 할인된 가격으로 판매됩니다 !!! ','샤바스',60,43,102,'white');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (5,'카페 패브릭 접이식 소파베드 3colors','leesieon',301,402,10,'2020-10-07',79000,'색상은 그레이, 브라운, 베이지 3가지 색상이 준비되어있습니다. 저희 회사에서 인기 급상승하고있는 제품이에요. 준비된 수량이 많이 없어 빠른 구매 추천드립니다 !','아이와비',130,70,62,'grey');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (6,'카페 패브릭 접이식 소파베드 3colors','leesieon',301,402,15,'2020-10-07',79000,'색상은 그레이, 브라운, 베이지 3가지 색상이 준비되어있습니다. 저희 회사에서 인기 급상승하고있는 제품이에요. 준비된 수량이 많이 없어 빠른 구매 추천드립니다 !','아이와비',130,70,62,'brown');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (7,'카페 패브릭 접이식 소파베드 3colors','leesieon',301,402,7,'2020-10-07',80000,'색상은 그레이, 브라운, 베이지 3가지 색상이 준비되어있습니다. 저희 회사에서 인기 급상승하고있는 제품이에요. 준비된 수량이 많이 없어 빠른 구매 추천드립니다 !','아이와비',13,70,62,'beige');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (8,'모아 모듈형 패브릭소파','tomotomoo',301,402,1024,'2020-10-07',800000,'편안한 소파는 기본이며 다양한 이벤트가 준비되어 있습니다! 이 기회를 놓치지 마세요!','한샘',170,100,100,'beige');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (9,'프라임 클리너','tomotomoo',301,402,15,'2020-10-24',125000,'이제 영화관은 필요 없습니다. 집에서 오붓하게 영화를 즐길 시간입니다.','한샘',130,120,200,'beige');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (10,'보나 5단 선반장','tomotomoo',301,402,150,'2020-10-24',75000,'모던한 서랍장과 넉넉한 수납을 자랑합니다. 집, 사무실 어디서든 예쁘고 편리하게!','한샘',50,70,80,'white');
+INSERT INTO `` (`id`,`name`,`sellerId`,`parentCategory`,`childCategory`,`stock`,`registrationDate`,`price`,`info`,`brand`,`width`,`length`,`height`,`color`) VALUES (11,'지금','tomotomoo',301,301,0,'2020-11-01',0,'.','한샘',1,1,1,'1');
