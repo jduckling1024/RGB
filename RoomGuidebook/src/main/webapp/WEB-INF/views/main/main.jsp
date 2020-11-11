@@ -13,14 +13,22 @@
 <script type="text/javascript">
 	var result = '${result}';
 
-	if(result == "loginSucceeded"){
+	if (result == "loginSucceeded") {
 		alert('${sessionScope.member.name}' + "님, 환영합니다.");
-	}else if(result == "logout"){
+	} else if (result == "logout") {
 		alert("로그아웃이 정상적으로 처리되었습니다.");
-	}else if(result == "registerMemberSucceeded"){
-		alert("회원가입이 완료되었습니다.")
-	}else if(result == "registerMemberFailed"){
+	} else if (result == "registerMemberSucceeded") {
+		alert("회원가입이 완료되었습니다.");
+	} else if (result == "registerMemberFailed") {
 		alert("회원가입 중 알 수 없는 오류가 발생했습니다.");
+	} else if (result == "needLogin") {
+		if (confirm("로그인이 필요한 작업입니다. 로그인 페이지로 이동하시겠습니까?")) {
+			window.location.href = "http://localhost:8080/login";
+		}
+	} else if (result == "updateMemberSucceeded") {
+		alert("회원정보 수정이 완료되었습니다.");
+	} else if (result == "deleteMemberSucceed") {
+		alert("회원 탈퇴가 완료되었습니다. 그동안 RGB를 이용해주셔서 감사합니다.")
 	}
 </script>
 </head>

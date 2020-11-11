@@ -75,12 +75,12 @@
 					pageContext.setAttribute("like", (LikeDTO) list.get(i)[2]);
 				%>
 				<div class="boardThumb">
-					<ul>
-						<li class="userID">${board.memberId}</li>
-						<li class="date">${board.date}</li>
-						<li><img class="image" src="${image.path}"></li>
-						<li class="likeIt">Like it: ${board.likeCnt}</li>
-					</ul>
+					<a href="/getBoard?no=${board.boardId}"><ul>
+							<li class="userID">${board.memberId}</li>
+							<li class="date">${board.date}</li>
+							<li><img class="image" src="${image.path}"></li>
+							<li class="likeIt">Like it: ${board.likeCnt}</li>
+						</ul> </a>
 				</div>
 				<%
 					}
@@ -118,8 +118,8 @@
 
 			<%
 				lastId = lastId - boardCnt;
-			}else{
-				break;
+			} else {
+			break;
 			}
 
 			}

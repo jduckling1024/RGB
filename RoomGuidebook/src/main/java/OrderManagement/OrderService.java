@@ -1,4 +1,4 @@
-package OrderManagement;
+package orderManagement;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,5 +14,5 @@ public class OrderService {
 
 	public List<Object[]> listForSeller(String sellerId) throws SQLException{
 		return orderDAO.listForSeller(sellerId);
-	}
+	} 
 }

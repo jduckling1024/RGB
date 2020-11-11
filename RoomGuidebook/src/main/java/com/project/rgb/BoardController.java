@@ -70,9 +70,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/getBoardList", method = RequestMethod.GET)
-	public String list(@RequestParam(value="page", defaultValue="1") int page, HttpSession session, Model model) {
+	public String list(@RequestParam(value="page", defaultValue="1") int page, HttpSession session, RedirectAttributes ra, Model model) {
 		try {
-			String id = ((MemberDTO) session.getAttribute("member")).getId();
+			MemberDTO memberSession = (MemberDTO) session.getAttribute("member");
+			if(memberSession == null) {
+				
+				ra.addFlashAttribute("result", "needLogin");
+				return "redirect:/main";
+			}
+			
+			String id = memberSession.getId();
 			List<Object[]> boardList = boardService.getList(id, page);
 			
 			int boardCnt = boardList.size();

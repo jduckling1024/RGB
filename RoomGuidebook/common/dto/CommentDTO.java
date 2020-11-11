@@ -7,6 +7,7 @@ public class CommentDTO {
 	int boardId;
 	String content;
 	String date;
+	int level; // 일단 임시로 추가하였습니다 대댓글을 위해서
 
 	public int getCommentId() {
 		return commentId;
@@ -54,5 +55,13 @@ public class CommentDTO {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
 	}
 }

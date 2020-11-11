@@ -16,11 +16,12 @@
 		<h3>
 			<strong>상품 관리</strong>
 		</h3>
-		<a href="#">상품조회 및 수정</a> <a href="#">상품 등록</a>
+		<a href="#">상품조회 및 수정</a> 
+		<a href="/getRegisterProductForm">상품 등록</a>
 		<h3>
 			<strong>주문 관리</strong>
 		</h3>
-		<a href="#">주문조회</a>
+		<a href="/getListForSeller">주문조회</a>
 	</div>
 
 	<div id="content-wrapper" class="content">

@@ -16,6 +16,7 @@ import dto.BoardDTO;
 import dto.ImageDTO;
 import dto.LikeDTO;
 
+
 @Repository("boardDAO")
 public class BoardDAO {
 	@Autowired
@@ -91,7 +92,7 @@ public class BoardDAO {
         		+ "from board\r\n"
         		+ "left join image\r\n"
         		+ "on board.id = image.divisionId\r\n"
-        		+ "where board.id = ?;";
+        		+ "where image.use = 204 and board.id = ?;";
         psmt = conn.prepareStatement(sql);
         psmt.setInt(1, no);
         
@@ -114,6 +115,16 @@ public class BoardDAO {
         
         obj[0] = boardDTO;
         obj[1] = imageDTO;
+        
+		if(res != null) {
+			res.close();
+		}
+		if(psmt != null) {
+			psmt.close();
+		}
+		if(conn != null) {
+			conn.close();
+		}
         
         return obj;
 	} // 게시물의 이미지도 가져와야 하기 때문에 리턴타입 변경 + 조회수 높이는 구문도 필요함.

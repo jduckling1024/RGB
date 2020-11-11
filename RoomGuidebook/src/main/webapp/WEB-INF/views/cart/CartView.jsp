@@ -17,26 +17,26 @@
 <script type="text/javascript">
 	var result = '${deleteCartResult}';
 
-	if(result == "success"){
+	if (result == "success") {
 		alert("장바구니 내역 삭제를 완료하였습니다.");
-	}else if(result == "fail"){
-		alert("알 수 없는 오류로 인해 장바구니 삭제 처리를 실패했습니다.");	
+	} else if (result == "fail") {
+		alert("알 수 없는 오류로 인해 장바구니 삭제 처리를 실패했습니다.");
 	}
-	
+
 	function deleteCartList() {
-		
+
 		var list = document.getElementsByName("checked");
 		var cnt = 0;
 		for (var i = 0; i < list.length; i++) {
 			if (list[i].checked) {
 				cnt++;
 			}
-		} 
-		
-		if(cnt == 0){
+		}
+
+		if (cnt == 0) {
 			alert("선택한 상품이 없습니다.");
-		}else{
-			if(confirm("정말로 삭제하시겠습니까?")){
+		} else {
+			if (confirm("정말로 삭제하시겠습니까?")) {
 				var cartForm = document.cartForm;
 				cartForm.action = "deleteCart";
 				cartForm.method = "post";
@@ -44,6 +44,15 @@
 			}
 		}
 	}
+	
+	function buy(){
+		if(confirm("구매 창으로 이동하시겠습니까?")){
+			var cartForm = document.cartForm;
+			cartForm.action = "getListForMember";
+			cartForm.method = "get";
+			cartForm.submit();
+		}
+	} 
 </script>
 </head>
 <body>
@@ -77,6 +86,8 @@
 					<div class="cartList">
 						<%
 							ArrayList<Object[]> cartList = (ArrayList<Object[]>) request.getAttribute("cartList");
+							request.setAttribute("myList", cartList);
+							pageContext.forward("/getListForMember");
 
 						for (int i = 0; i < cartList.size(); i++) {
 							CartDTO cart = (CartDTO) cartList.get(i)[0];
@@ -150,7 +161,10 @@
 							</table>
 						</div>
 						<br>
-						<button type="button" class="btn_purchase" disabled>구매하기</button>
+
+
+						<button type="button" class="btn_purchase" onclick="buy();">구매하기</button>
+
 					</div>
 				</div>
 			</form>

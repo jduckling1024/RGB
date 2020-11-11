@@ -28,13 +28,6 @@ public class MemberDAO {
 	String sql;
 
 	public void register(MemberDTO member) throws SQLException {
-		System.out.println(member.getId());
-		System.out.println(member.getPassword());
-		System.out.println(member.getName());
-		System.out.println(member.getPhoneNum());
-		System.out.println(member.getEmail());
-		System.out.println(member.getAddress());
-		
 		try {
 			conn = dataSource.getConnection();
 			conn.setAutoCommit(false);
@@ -73,14 +66,74 @@ public class MemberDAO {
 	}
 	
 	public void update(MemberDTO member) throws SQLException{
-		System.out.println("MemberDTO");
-		System.out.println(member.getId());
-		System.out.println(member.getPassword());
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			sql = "UPDATE rgb.user SET password = ?, name = ?  WHERE (id = ?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getPassword());
+			psmt.setString(2, member.getName());
+			psmt.setString(3, member.getId());
+			psmt.executeUpdate();
+			
+			sql = "UPDATE rgb.member SET phoneNum = ?, address = ?, email = ? WHERE (id = ?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,  member.getPhoneNum());
+			psmt.setString(2, member.getAddress());
+			psmt.setString(3, member.getEmail());
+			psmt.setString(4, member.getId());
+			psmt.executeUpdate();
+			conn.commit();
+		} 
+		catch (SQLException e) {
+			conn.rollback();
+			throw new SQLException();
+		} finally {
+			conn.setAutoCommit(true);
+			
+			if(res != null) {
+				res.close();
+			}
+			if(psmt != null) {
+				psmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
 	}
 	
-	public void delete(String id) {
-		System.out.println("MemberDAO delete");
-		System.out.println(id);
+	public void delete(String id) throws SQLException{
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			sql = "DELETE FROM rgb.member WHERE (id = ?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.executeUpdate();
+			
+			sql = "DELETE FROM rgb.user WHERE (id = ?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.executeUpdate();
+			conn.commit();
+		} 
+		catch (SQLException e) {
+			conn.rollback();
+			throw new SQLException();
+		} finally {
+			conn.setAutoCommit(true);
+			
+			if(res != null) {
+				res.close();
+			}
+			if(psmt != null) {
+				psmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
 	}
 	
 	public MemberDTO get(String id) throws SQLException {

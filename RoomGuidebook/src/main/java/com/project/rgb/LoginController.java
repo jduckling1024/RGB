@@ -1,6 +1,7 @@
 package com.project.rgb;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,21 +39,28 @@ public class LoginController {
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
 	public String login(HttpSession session, @ModelAttribute("user") UserDTO user, RedirectAttributes ra)
 			throws IOException {
-		UserDTO userDTO = loginService.login(user);
-
-		if (userDTO.getId() != null) {
-			if (userDTO.getAutority() == MEMBER) {
-				MemberDTO memberDTO = (MemberDTO) userDTO;
-				session.setAttribute("member", memberDTO);
-				ra.addFlashAttribute("result", "loginSucceeded");
-				return "redirect:/main";
-			} else if(userDTO.getAutority() == SELLER){
-				SellerDTO sellerDTO = (SellerDTO) userDTO;
-				session.setAttribute("seller", sellerDTO);
-				ra.addFlashAttribute("result", "loginSucceeded");
-				return "redirect:/getProductList";
-				// 판매자 페이지
+		UserDTO userDTO;
+		try {
+			userDTO = loginService.login(user);
+			if(userDTO != null) {
+				if (userDTO.getId() != null) {
+					if (userDTO.getAutority() == MEMBER) {
+						MemberDTO memberDTO = (MemberDTO) userDTO;
+						session.setAttribute("member", memberDTO);
+						ra.addFlashAttribute("result", "loginSucceeded");
+						return "redirect:/main";
+					} else if(userDTO.getAutority() == SELLER){
+						SellerDTO sellerDTO = (SellerDTO) userDTO;
+						session.setAttribute("seller", sellerDTO);
+						ra.addFlashAttribute("result", "loginSucceeded");
+						return "redirect:/getProductList";
+						// 판매자 페이지
+					}
+				}
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		ra.addFlashAttribute("result", "fail");

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import boardAndCommentManagement.CommentService;
@@ -22,9 +23,9 @@ public class CommentController {
 	
 	@RequestMapping(value = "/getCommentList", method = RequestMethod.GET)
 	@ResponseBody
-	public List<CommentDTO> getList() {
+	public List<CommentDTO> getList(@RequestParam(value="no") int no) {
 		try {
-			List<CommentDTO> commentList = commentService.getList(1); // 에러 없앨라고 번호 넣은거니 또 처리 잘 해라.
+			List<CommentDTO> commentList = commentService.getList(no); 
 			return commentList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

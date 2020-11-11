@@ -70,32 +70,33 @@ public class ProductInfoController {
 	}
 
 	public List<ImageDTO> setPathAndUploadFile(int use, List<MultipartFile> fileList) throws IOException {
-		UUID uid = UUID.randomUUID();
+		UUID uid = UUID.randomUUID(); // 파일 이름 중복을 대비해서 랜덤한 값을 만들어낸다.
 		int i = 0;
 		String additoryPath;
 		List<ImageDTO> imageList = new ArrayList<ImageDTO>();
 
 		if (use == FOR_SHOW) {
 			for (MultipartFile mf : fileList) {
-				String originFileName = mf.getOriginalFilename();
+				String originFileName = mf.getOriginalFilename(); // 파일 명 들고오고
 				ImageDTO imageDTO = new ImageDTO();
 				if (i == 0) {
 					imageDTO.setUse(201);
 					additoryPath = "\\resources\\image_main\\";
 				} else {
 					additoryPath = "\\resources\\image_info\\";
-				}
+				} // 저장할 중간 경로 설정해줘서
 
-				String savedName = additoryPath + uid.toString() + "_" + originFileName;
+				String savedName = additoryPath + uid.toString() + "_" + originFileName; // 중간 경로 ~ 파일 명까지 합쳐준다
 
 				imageDTO.setPath(savedName);
-				imageList.add(imageDTO);
+				imageList.add(imageDTO); // 얘네는 디비로 보낼 경로고
 
 				// File target = new File(defaultPath, savedName);
 				// FileCopyUtils.copy(mf.getBytes(), target); // 이 과정으로 인해 파일 저장이 이루어지는 듯
+				// 이 두 줄 주석 풀면 실제로 파일이 저장됩니다
 			}
 		} else {
-			// 이미지 배경 없애는거 처리해주세요
+			// 이미지 배경 없애는거 처리
 		}
 		return imageList;
 	}

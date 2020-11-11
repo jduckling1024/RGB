@@ -59,6 +59,15 @@
 		}
 	}
 	
+	function buy(){
+		if(confirm("상품 구매 페이지로 이동하시겠습니까?")){
+			var cartForm = document.cartForm;
+			cartForm.action = "";
+			cartForm.method = "post";
+			cartForm.submit();
+		}
+	}
+	
 </script>
 
 <body>
@@ -128,7 +137,7 @@
 				</ul>
 				<br>
 				<div class="buttonGroup">
-					<button class="buttons" type = "submit">Buy Now</button>
+					<button class="buttons" type = "submit" onclick="buy();">Buy Now</button>
 					<form name="cartForm"> <!-- action = "/registerCart" method="post" -->
 						<input type="hidden" name="memberId" value="${sessionScope.member.id}">
 						<input type="hidden" name="productId" value="${product.id}">

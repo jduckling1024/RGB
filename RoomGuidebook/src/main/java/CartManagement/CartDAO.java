@@ -1,4 +1,4 @@
-package CartManagement;
+package cartManagement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

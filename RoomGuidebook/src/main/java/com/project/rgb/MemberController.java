@@ -21,19 +21,18 @@ import memberManagement.MemberService;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
-	
+
 	@RequestMapping(value = "/registerMemberView", method = RequestMethod.GET)
 	public String requestRegisterMemberView() {
 		return "/member/MemberRegisterView";
 	}
-	
-	
+
 	@RequestMapping(value = "/registerMember", method = RequestMethod.POST)
 	public String register(@ModelAttribute("member") MemberDTO member, RedirectAttributes ra) {
 		try {
 			memberService.register(member);
-		
-			ra.addAttribute("result", "registerMemberSucceeded");
+
+			ra.addFlashAttribute("result", "registerMemberSucceeded");
 			return "redirect:/main"; // 혹시나 네트워크 문제로 실패하면 그 창 가만히 있게 하고싶다 흐음...
 			// 성공 메시지 띄우고 메인으로 가는가 로그인창으로 가는가?
 		} catch (SQLException e) {
@@ -43,14 +42,23 @@ public class MemberController {
 		ra.addAttribute("result", "registerMemberFailed");
 		return null;
 	}
-	
+
 	@RequestMapping(value = "/updateMemberView", method = RequestMethod.POST)
-	public String updateMemberView(@ModelAttribute("member") MemberDTO member, Model model) {
-		model.addAttribute("member", member);
-		System.out.println(member.getPhoneNum());
-		return "/member/MemberUpdateView";
+	public String updateMemberView(HttpSession session, @ModelAttribute("member")MemberDTO member, Model model,
+			RedirectAttributes ra) {
+		
+		System.out.println(((MemberDTO) session.getAttribute("member")).getPassword());
+		System.out.println(member.getPassword());
+		
+		if ((((MemberDTO) session.getAttribute("member")).getPassword()).equals(member.getPassword())) {
+			model.addAttribute("member", member);
+			System.out.println(member.getName());
+			return "/member/MemberUpdateView";
+		}
+		ra.addFlashAttribute("result", "wrong");
+		return "redirect:/getMember";
 	}
-	
+
 	@RequestMapping(value = "/updateMember", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") MemberDTO member, RedirectAttributes ra) {
 		try {
@@ -61,33 +69,36 @@ public class MemberController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		ra.addAttribute("result", "success");
+
+		ra.addFlashAttribute("result", "updateMemberSucceeded");
 		return "redirect:/main";
 	}
-	
+
 	@RequestMapping(value = "/deleteMember", method = RequestMethod.POST)
 	public String delete(HttpSession session, RedirectAttributes ra) {
-		String id = ((MemberDTO)session.getAttribute("member")).getId();
-		memberService.delete(id);
-		session.invalidate();
-		return "redirect:/main";
-	} // 회원탈퇴 시 세션도 끊겨야 하므로 매개변수로 session을 두는게 더 좋을 것 같습니다
-	
-	@RequestMapping(value = "/getMember", method = RequestMethod.POST)
-	public String get(HttpSession session, Model model) { 
-		// ※※※※※※※※※※※ 세션에서 아이디 가져오는 것이 더 좋을 것 같아 파라미터를 바꿨습니다. ※※※※※※※※※※※
-		String id = ((MemberDTO)session.getAttribute("member")).getId();
-		MemberDTO member;
 		try {
-			member = memberService.get(id);
-			System.out.println("전화번호 출력 : " + member.getPhoneNum());
-			model.addAttribute("member", member);
-			return "/member/MemberView";
+			String id = ((MemberDTO) session.getAttribute("member")).getId();
+			memberService.delete(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
-		return null; // 의미 있을까...
+		}
+		
+		session.invalidate();
+		ra.addFlashAttribute("result", "deleteMemberSucceed");
+		return "redirect:/main";
+	} // 회원탈퇴 시 세션도 끊겨야 하므로 매개변수로 session을 두는게 더 좋을 것 같습니다
+
+	@RequestMapping(value = "/getMember", method = RequestMethod.GET)
+	public String get(HttpSession session, Model model) {
+		String id = ((MemberDTO) session.getAttribute("member")).getId();
+		MemberDTO member;
+		try {
+			member = memberService.get(id);
+			model.addAttribute("member", member);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "/member/MemberView";
 	}
 }

@@ -16,7 +16,7 @@
 			</p>
 
 			<c:if test="${not empty sessionScope.member}">
-				<div class="user_info">${sessionScope.member.name}님,환영합니다.</div>
+				<div class="user_info"><a href="/getMember">${sessionScope.member.name}</a>님, 환영합니다.</div>
 			</c:if>
 
 			<div class="menu">

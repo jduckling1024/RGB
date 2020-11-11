@@ -1,4 +1,4 @@
-package CartManagement;
+package cartManagement;
 
 import java.sql.SQLException;
 import java.util.List;

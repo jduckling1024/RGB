@@ -20,7 +20,7 @@ public class MemberService {
 		memberDAO.update(member);
 	}
 	
-	public void delete(String id) {
+	public void delete(String id) throws SQLException {
 		memberDAO.delete(id);
 	}
 	

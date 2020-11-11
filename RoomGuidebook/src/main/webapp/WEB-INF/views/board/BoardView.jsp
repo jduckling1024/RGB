@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
+<%@include file="../main/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -13,15 +15,19 @@
 <script>
         $(function () {
         	/* 전체 댓글 목록 조회 */
-        	$.getJSON("/getCommentList", function(data) {
+        	$.getJSON("/getCommentList", {"no": "<c:out value="${board.boardId}"/>"} ,function(data) {
         		var str = "";
         		console.log(data.length);
-        		
+       
         		$(data).each(
         			function(){
-        				str += "<li commentId='" + this.commentId +"' class = 'commentLi'>"
+        				var margin = 20 * this.level;
+                		console.log(margin);
+        				str += "<ul style='margin-left: "+ margin + "px;'> <li class = 'userId'>" + this.memberId + "</li> <li class = 'comment'>" + this.content + "</li> <li><input type='button' class='modifyBtn' value='수정'></li> <li><input type='button' class='deleteBtn' value='삭제'></li> </ul> <br> <br>";
+                            
+        				/* str += "<li commentId='" + this.commentId +"' class = 'commentLi'>"
         				+ this.commentId + ":" + this.content 
-        				+"</li>";
+        				+"</li>"; */
         			});
         			
         		$("#replies").html(str);	
@@ -62,37 +68,69 @@
     		});
         });      
     </script>
+    
+    <link rel="stylesheet" href="/resources/css/board.css">
 </head>
 <body>
-	<p>${board.boardId}</p>
-	<p>${board.memberId}</p>
-	<p>${image.path}</p>
+    <div class="wrap">
+<!--         <div class="top">
+            <div class="header">
+                <p class="Title"><strong>RGB : Room Guide Book</p></strong>
+                <div class="menu">
+                    <ul>
+                        <li class="menu1"><a href="">Store</a>
+                        <li class="menu2"><a href="">Community</a>
+                        <li class="menu3"><a href="">Login</a>
+                        <li class="menu4"><a href="">Join</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
 
-	<br>
-	<h2>댓글</h2>
+        <div class="container">
+            <div class="leftSection">
+                <br>
+                <br>
+                <p class="main_title"><strong style="font-size: 25px;">${board.title}</strong></p>
+                <br>
+                <div class="content">
+                    <img class="image" src="${image.path}" width="100%">
+                    <p>${board.content} </p>
+                </div>
+            </div>
 
-	<!-- 댓글 작성 -->
-	<c:set var="now" value="<%=new java.util.Date()%>" />
-	<c:set var="date">
-		<fmt:formatDate value="${now}" pattern="yyyy-mm-dd" />
-	</c:set>
+            <div class="rightSection">
+                <div class="insertComment">
+                    <ul>
+                        <li><input type="text" style="display: inline-block; width: 400px;">
+                        <input type="button" class="insertBtn" value="등록"></li>
+                    </ul>
+                </div>
 
-	<div>
-		<div>
-			작성자<input type="text" name="memberId" id="memberId">
-		</div>
-		<div>
-			내용<input type="text" name="content" id="content">
-		</div>
- 		<input type="hidden" value="${sessionScope.member.name}" id="commentId">
-		<input type="hidden" value="${date}" id="now">
-		<button id="registerBtn">등록</button>
-	</div>
-
-	<!-- 댓글 조회 -->
-	<ul id="replies">
-	</ul>
+                <br> <br> <br>
 
 
+               <div class = "commentList" id="replies">
+                  <!--  <ul>
+                       <li class = "userId"><a>userId</a></li>
+                       <li class = "comment"><a>comment</a></li>
+                       <li><input type="button" class="modifyBtn" value="수정"></li>
+                       <li><input type="button" class="deleteBtn" value="삭제"></li>
+                   </ul> -->
+               </div>
+
+            </div>
+        </div>
+        
+        <!-- 테스트용 -->
+           <ul id="replies"></ul>
+        
+
+
+        <div class="bottom">
+
+        </div>
+
+    </div>
 </body>
 </html>
