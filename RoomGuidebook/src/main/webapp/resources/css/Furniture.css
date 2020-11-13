@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+
+.wrap {
+	margin: 0 auto;
+}
+
+.header {
+	background-color: #424242;
+	width: 100%;
+	padding: 1.5rem;
+	position: absolute;
+	margin-top: 20px;
+}
+
+.header::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.middle {
+	background-color: #575d6d;
+	height: 3.75rem;
+	font-size: 20px;
+	color: white;
+	padding-top: 15px;
+	padding-left: 50px;
+}
+
+.menu {
+	float: right;
+	margin-right: 15%;
+}
+
+.menu ul li>a {
+	width: 85px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	display: block;
+}
+
+.menu ul ul {
+	display: none;
+	position: absolute;
+}
+
+.menu ul li:hover ul {
+	display: block;
+}
+
+.menu ul ul li {
+	padding: 3%;
+}
+
+.menu>ul>li {
+	display: inline-block;
+	border: 1px solid #fff;
+	padding: 15px 1em;
+	font-size: rem;
+	color: #fff;
+}
+
+.buttonGroup>ul>li {
+	display: inline-block;
+	border: 1px solid #fff;
+	padding: 15px 1em;
+	font-size: rem;
+	color: #fff;
+}
+
+.menu1 {
+	border-top-left-radius: 15%;
+	border-bottom-left-radius: 15%;
+}
+
+.menu4 {
+	border-top-right-radius: 15%;
+	border-bottom-right-radius: 15%;
+}
+
+.main_title {
+	font-size: 30px;
+	font: bolder;
+}
+
+.Title {
+	color: #fff;
+	font-size: 32px;
+	font: bolder;
+}
+
+.leftSection, .rightSection {
+	float: left;
+	padding: 10px;
+}
+
+.leftSection {
+	width: 50%;
+}
+
+.rightSection {
+	width: 50%;
+}
+
+.title {
+	border: 1px solid black;
+	font-size: 25px;
+	font: bolder;
+	padding: 30px;
+}
+
+.list {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.container {
+	max-width: 1200px;
+	padding-top: 10%;
+	margin: auto;
+}
+
+.container::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.bottom {
+	clear: both;
+}
+
+.bottom {
+	columns: #888888;
+}
+
+.bottom_info {
+	padding: 10px;
+}
+
+.info {
+	text-align: center;
+}
+
+.choice li {
+	font-size: 25px;
+	font: bolder;
+	float: left;
+	list-style: none;
+	margin-right: 20px;
+}
+
+th, td {
+	margin-left: 10px;
+	padding: 10px;
+}
+
+.buttons {
+	width: 100px;
+	height: 30px;
+	background-color: #424242;
+	color: white;
+	font-size: 15px;
+}
+
+form {
+	display: inline;
+ }
