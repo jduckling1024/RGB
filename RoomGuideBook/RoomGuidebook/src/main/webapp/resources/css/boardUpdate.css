@@ -1,0 +1,780 @@
+/* @charset "UTF-8";
+
+
+
+
+.login-main h1{
+	color: #08080B;
+	font-weight: 700;
+	font-size: 1.2em;
+    padding: 0.8em 0;
+}
+
+.login-main{
+    border-top: 1px solid #EEE;
+}
+
+.board{
+    margin-top:2em;
+    height:25.1em;
+    width:100%
+}
+
+#uploadImg{ 
+    padding:10%;
+    width :100%;
+}
+
+#content{
+    margin-top:3%;
+    padding:1em;
+    text-align:normal;
+    resize:none;
+    width:80%;
+    margin-left:7%;
+}
+
+#title{
+    padding:0.6em;
+    margin-top:1em;
+    width:80%;
+    margin-left:7%;
+}
+
+.imageSection{
+    float:left; 
+    padding:1em;
+    width :48%;
+}
+.contentSection{
+    padding-top:3.5em;
+    float:left;
+    width:48%;
+}
+
+.upload-btn-wrapper {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 0.5em 3em;
+    border-radius: 8px;
+    font-size:1.2em;
+    font-weight: bold;
+    margin-left:5.3em;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btnImage{
+      width :300px;
+      height:250px;
+  }
+
+  #addBtn{
+    height:2.3em;
+    float:right;
+    margin-right:3em;
+    width:20%;
+    background-color: #424242;
+    border-radius:10px;
+    color: white;
+  }
+
+  .wrap h1 span{
+      width:50%;
+  }
+
+  #image_container1{
+      width:96%;
+    }
+
+    #img{
+    margin:3% 10% 3% 10%;
+    padding:3%;
+    border:solid 2.3px #E45D5D;
+    width:80%;
+    }
+
+
+
+
+     
+
+@media only screen and (max-width:640px) and (min-width:480px){
+    .imageSection{
+        float:none; 
+        padding:1em;
+        width :100%;
+    }
+    .contentSection{
+        float:none;
+        width:100%;
+    }
+    
+    .upload-btn-wrapper {
+        width:100%;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        padding: 0.5em 3em;
+        border-radius: 8px;
+        font-size:1em;
+        font-weight: bold;
+        margin-left:20%;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    
+      .btnImage{
+          width :300px;
+          height:250px;
+      }
+
+      #image_container1{
+        width:100%;
+      }
+
+      .imageSection{
+          width:85%;
+      }
+
+      #title{
+        padding:0.6em;
+        margin-top:0em;
+        width:82%;
+    }
+
+}
+
+
+@media only screen and (max-width:1024px) and (min-width:640px){
+    .imageSection{
+        float:none; 
+        padding:1em;
+        width :100%;
+    }
+    .contentSection{
+        float:none;
+        width:100%;
+    }
+    
+    .upload-btn-wrapper {
+        width:100%;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        width:60%;
+        border-radius: 8px;
+        font-size:1em;
+        font-weight: bold;
+        margin-left:20%;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    
+      .btnImage{
+          width :300px;
+          height:250px;
+      }
+
+      #image_container1{
+        width:100%;
+      }
+
+      .imageSection{
+          width:85%;
+      }
+
+      #title{
+        padding:0.6em;
+        margin-top:0em;
+        width:82%;
+    }
+
+    #addBtn{
+        margin-right:4em;
+    }
+}
+
+@media only screen and (max-width:640px) and (min-width:480px){
+.imageSection{
+    float:none; 
+    padding:1em;
+    width :100%;
+}
+.contentSection{
+    float:none;
+    width:100%;
+}
+
+.upload-btn-wrapper {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 0.5em 3em;
+    border-radius: 8px;
+    font-size:1em;
+    font-weight: bold;
+    margin-left:20%;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btnImage{
+      width :300px;
+      height:250px;
+  }
+
+  #image_container1{
+    width:100%;
+  }
+
+  .imageSection{
+      width:85%;
+  }
+
+  #title{
+    padding:0.6em;
+    margin-top:0em;
+    width:82%;
+}
+
+}
+
+@media only screen and (max-width:480px) and (min-width:320px){
+.imageSection{
+    float:none; 
+    padding:1em;
+    width :100%;
+}
+.contentSection{
+    float:none;
+    width:100%;
+}
+
+.upload-btn-wrapper {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    width:80%;
+    height:3em;
+    border-radius: 8px;
+    font-size:0.7em;
+    font-weight: bold;
+    margin-left:10%;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size:100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btnImage{
+      width :300px;
+      height:250px;
+  }
+
+  #image_container1{
+    width:100%;
+  }
+
+  .imageSection{
+      width:85%;
+  }
+
+  #title{
+    padding:0.6em;
+    margin-top:0em;
+    width:82%;
+}
+
+#addBtn{
+    float:right;
+    width:35%;
+    background-color: #424242;
+    border-radius:10px;
+    color: white;
+  }
+
+}
+
+@media only screen and (max-width:320px) and (min-width:240px){
+.imageSection{
+    float:none; 
+    padding:1em;
+    width :100%;
+}
+.contentSection{
+    float:none;
+    width:100%;
+}
+
+.upload-btn-wrapper {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    width:80%;
+    height:3em;
+    border-radius: 8px;
+    font-size:0.5em;
+    font-weight: bold;
+    margin-left:10%;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size:100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btnImage{
+      width :300px;
+      height:250px;
+  }
+
+  #image_container1{
+    width:100%;
+  }
+
+  .imageSection{
+      width:85%;
+  }
+
+  #title{
+    padding:0.6em;
+    margin-top:0em;
+    width:82%;
+}
+
+#addBtn{
+    float:right;
+    width:35%;
+    background-color: #424242;
+    border-radius:10px;
+    color: white;
+  }
+
+} */
+
+.login-main h1{
+	color: #08080B;
+	font-weight: 700;
+	font-size: 1.2em;
+    padding: 0.8em 0;
+}
+
+.login-main{
+    border-top: 1px solid #EEE;
+}
+
+.board{
+    margin-top:2em;
+    height:25.1em;
+    width:100%
+}
+
+#uploadImg{ 
+    padding:10%;
+    width :100%;
+}
+
+#content{
+    margin-top:3%;
+    padding:1em;
+    text-align:normal;
+    resize:none;
+    width:80%;
+    margin-left:7%;
+}
+
+#title{
+    padding:0.6em;
+    margin-top:1em;
+    width:80%;
+    margin-left:7%;
+}
+
+.imageSection{
+    float:left; 
+    padding:1em;
+    width :48%;
+}
+.contentSection{
+    padding-top:3.5em;
+    float:left;
+    width:48%;
+}
+
+.upload-btn-wrapper {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 0.5em 3em;
+    border-radius: 8px;
+    font-size:1.2em;
+    font-weight: bold;
+    margin-left:5.3em;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btnImage{
+      width :300px;
+      height:250px;
+  }
+
+  #addBtn{
+    height:2.3em;
+    float:right;
+    margin-right:3em;
+    width:20%;
+    background-color: #424242;
+    border-radius:10px;
+    color: white;
+  }
+
+  .wrap h1 span{
+      width:50%;
+  }
+
+  #image_container1{
+      width:96%;
+    }
+
+    
+
+
+    @media only screen and (max-width:1024px) and (min-width:640px){
+        .imageSection{
+            float:none; 
+            padding:1em;
+            width :100%;
+        }
+        .contentSection{
+            float:none;
+            width:100%;
+        }
+        
+        .upload-btn-wrapper {
+            width:100%;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+          }
+          
+          .btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            width:60%;
+            border-radius: 8px;
+            font-size:1em;
+            font-weight: bold;
+            margin-left:20%;
+          }
+          
+          .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+          }
+        
+          .btnImage{
+              width :300px;
+              height:250px;
+          }
+    
+          #image_container1{
+            width:100%;
+          }
+    
+          .imageSection{
+              width:85%;
+          }
+    
+          #title{
+            padding:0.6em;
+            margin-top:0em;
+            width:82%;
+        }
+
+        #addBtn{
+            margin-right:4em;
+        }
+    }
+
+@media only screen and (max-width:640px) and (min-width:480px){
+    .imageSection{
+        float:none; 
+        padding:1em;
+        width :100%;
+    }
+    .contentSection{
+        float:none;
+        width:100%;
+    }
+    
+    .upload-btn-wrapper {
+        width:100%;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        padding: 0.5em 3em;
+        border-radius: 8px;
+        font-size:1em;
+        font-weight: bold;
+        margin-left:20%;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    
+      .btnImage{
+          width :300px;
+          height:250px;
+      }
+
+      #image_container1{
+        width:100%;
+      }
+
+      .imageSection{
+          width:85%;
+      }
+
+      #title{
+        padding:0.6em;
+        margin-top:0em;
+        width:82%;
+    }
+
+}
+
+@media only screen and (max-width:480px) and (min-width:320px){
+    .imageSection{
+        float:none; 
+        padding:1em;
+        width :100%;
+    }
+    .contentSection{
+        float:none;
+        width:100%;
+    }
+    
+    .upload-btn-wrapper {
+        width:100%;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        width:80%;
+        height:3em;
+        border-radius: 8px;
+        font-size:0.7em;
+        font-weight: bold;
+        margin-left:10%;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        font-size:100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    
+      .btnImage{
+          width :300px;
+          height:250px;
+      }
+
+      #image_container1{
+        width:100%;
+      }
+
+      .imageSection{
+          width:85%;
+      }
+
+      #title{
+        padding:0.6em;
+        margin-top:0em;
+        width:82%;
+    }
+
+    #addBtn{
+        float:right;
+        width:35%;
+        background-color: #424242;
+        border-radius:10px;
+        color: white;
+      }
+
+}
+
+@media only screen and (max-width:320px) and (min-width:240px){
+    .imageSection{
+        float:none; 
+        padding:1em;
+        width :100%;
+    }
+    .contentSection{
+        float:none;
+        width:100%;
+    }
+    
+    .upload-btn-wrapper {
+        width:100%;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        width:80%;
+        height:3em;
+        border-radius: 8px;
+        font-size:0.5em;
+        font-weight: bold;
+        margin-left:10%;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        font-size:100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    
+      .btnImage{
+          width :300px;
+          height:250px;
+      }
+
+      #image_container1{
+        width:100%;
+      }
+
+      .imageSection{
+          width:85%;
+      }
+
+      #title{
+        padding:0.6em;
+        margin-top:0em;
+        width:82%;
+    }
+
+    #addBtn{
+        float:right;
+        width:35%;
+        background-color: #424242;
+        border-radius:10px;
+        color: white;
+      }
+
+}

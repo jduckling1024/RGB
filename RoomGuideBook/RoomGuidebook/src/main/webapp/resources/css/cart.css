@@ -1,0 +1,843 @@
+@charset "UTF-8";
+
+/*
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    list-style : none;
+}
+
+.wrap{
+    margin:0 auto;
+}
+
+.header{
+     background-color : #424242;
+     width : 100%;
+     padding: 1.5rem;
+     position : absolute;
+     margin-top : 20px;
+}
+
+.header::after{
+    content:'';
+    display :block;
+    clear:both;
+}
+
+.middle{
+    background-color:#575d6d;
+    height : 3.75rem;
+    font-size : 20px;
+    color : white;
+    padding-top : 15px;
+    padding-left : 50px;
+}
+
+.menu{
+    float:right;
+    margin-right: 15%;
+}
+
+.menu ul li >a{
+    width : 85px;
+    text-align: center;
+    text-decoration:none;
+    color : #fff;
+    font-weight:bold;
+    display:block;
+}
+
+.menu ul ul {
+    display:none;
+    position:absolute;
+}
+
+.menu ul li:hover ul{
+  display:block;
+}
+
+.menu ul ul li{
+    padding:3%;
+}
+
+.menu>ul>li{
+    display:inline-block;
+    border:1px solid #fff;
+    padding:15px 1em;
+    font-size:rem;
+    color:#fff;
+}
+
+.menu1{
+    border-top-left-radius: 15%;
+    border-bottom-left-radius : 15%;
+}
+
+.menu4{
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.main_title{
+    font-size:30px;
+    font:bolder;
+}
+
+.Title{
+    color: #fff;
+    font-size:32px;
+    font:bolder;
+}
+
+.leftSection, .rightSection{
+    float:left;
+    padding:1em;
+}
+
+.leftSection{
+    width :50%;
+  
+}
+.rightSection{
+    width:50%;
+}
+
+.title{
+    border: 1px solid black;
+    font-size: 25px;
+    font: bolder;
+    padding: 30px;
+}
+
+.container{ 
+    max-width:1200px;
+    padding-top:10%;
+    margin: auto;
+}
+
+.container::after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+
+.bottom{
+    clear:both;
+    background-color:rgb(180, 180, 180);
+}
+
+.bottom{
+    columns: #888888;;
+}
+
+
+.image{
+    width:150px;
+    height: 150px;
+}
+
+.cartList ul li{
+    float:left;
+    margin-right : 10%;
+}
+
+.btn_purchase {
+    margin: 20px 0 0;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+}
+
+.cartList{
+    width : 90%;
+    float: left;
+}
+
+.each{
+    border: black solid 0.5px;
+    height : 150px;
+    width : 500px;
+    margin-bottom: 20px;
+}
+
+.menu{
+    float:right;
+    margin-right: 15%;
+}
+
+.productImage{
+    display: inline-block;
+}
+
+.infoSection{
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+    width : 310px;
+    height : 150px;
+}
+
+.menu ul li >a{
+    width : 85px;
+    text-align: center;
+    text-decoration:none;
+    color : #fff;
+    font-weight:bold;
+    display:block;
+}
+
+.menu ul ul {
+    display:none;
+    position:absolute;
+}
+
+.menu ul li:hover ul{
+  display:block;
+}
+
+.menu ul ul li{
+    padding:3%;
+}
+
+.menu>ul>li{
+    display:inline-block;
+    border:1px solid #fff;
+    padding:15px 1em;
+    font-size:rem;
+    color:#fff;
+}
+
+.menu1{
+    border-top-left-radius: 15%;
+    border-bottom-left-radius : 15%;
+}
+
+.menu4{
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.perchaseSection{
+    border: black 0.5px solid;
+    width: 40%;
+    position: fixed;
+}
+
+.checkForDelete{
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+}
+
+.checkForDelete > input{
+    width : 20px;
+    height: 20px;
+}
+
+.deleteBtn{
+    position: relative;
+    background-color: #000;
+    width: 50px;
+    height : 30px;
+    color: white;
+    margin-left: 55%;
+}
+ */
+
+/* .leftSection, .rightSection{
+    float:left;
+}
+
+.leftSection{
+    overflow:auto;
+    padding-top:3%;
+    padding-left:5%;
+    width :50%; 
+}
+.rightSection{
+    margin-top: 7em;
+    margin-left: 5em;
+    padding: 2%;
+    width: 320px;
+    height: 120px;
+    border: solid 1px #EEE;
+    position: absolute;
+    left: 50%;
+    position: fixed;
+}
+
+.priceInfo{
+    width: 25%;
+    height: 20%;
+    position: fixed;
+}
+
+.btn_purchase {
+	background: #E45D5D;
+	color: #FFF;
+    font-size: 0.8em;
+    width: 100%;
+    height: 20%;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+    margin-top: 7%;
+}
+
+.btn_purchase:hover{
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
+
+.cartList{
+    float: left;
+    width : 80%;
+    border: solid 1px #EEE;
+    margin-bottom:0.5em;
+}
+
+.cartList ul li{
+    float:left;
+    margin-right : 10%;
+}
+
+.image{
+    width:150px;
+    height: 150px;
+}
+
+.list{
+ padding:0.5em;
+}
+
+.priceInfoTable{
+    width:100%;
+}
+.priceInfoTable tr th{
+    text-align:left;
+    width:50%;
+}
+
+.priceInfoTable tr td{
+    text-align:right;
+    width:50%;
+}
+
+.mainTitle{
+    width:80%;
+    font-size:24px;
+    font-style:Bold;    
+}
+
+.cartList ul li{
+    float:left;
+    margin-right : 10%;
+}
+
+.productImage{
+    display: inline-block;
+}
+
+.infoSection{
+    display: inline-block;
+    position: absolute;
+    margin: 1%;
+    width: 18%;
+    height: 20%;
+}
+
+.ccontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  Hide the browser's default checkbox
+  .ccontainer input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  Create a custom checkbox
+  .checkForDelete {
+    display: block;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    position: relative;
+    float: right;
+    border-radius: 5px;
+    margin-top: 15%;
+  }
+
+  
+  On mouse-over, add a grey background color
+  .ccontainer:hover input ~ .checkForDelete {
+    background-color: #ccc;
+  }
+  
+  When the checkbox is checked, add a blue background
+  .ccontainer input:checked ~ .checkForDelete {
+    background-color: #fa7f94;
+  }
+  
+  Create the checkmark/indicator (hidden when not checked)
+  .checkForDelete:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  Show the checkmark when checked
+  .ccontainer input:checked ~ .checkForDelete:after {
+    display: block;
+  }
+  
+  Style the checkmark/indicator
+  .ccontainer .checkForDelete:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+.deleteBtn{
+    float: right;
+    margin-top: 10%;
+	background: #E45D5D;
+	color: #FFF;
+	font-size: 0.5em;
+	padding: 0.7em 1.2em;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+    border-top: none;
+    
+}
+
+.deleteBtn:hover{
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
+*/
+
+/*
+@media only screen and (max-width: 640px) and (min-width: 400px) {
+    .wrap{
+        width:80%;
+    }
+    .rightSection{
+        position: initial;
+        margin-top: 3em;
+        margin-left: 8%;
+        padding: 2%;
+        border: solid 1px #EEE;
+        float: none;
+        width: 85%;
+        height: 120px;
+    }
+
+    .priceInfo{
+        width: 100%;
+        position: initial;
+    }
+
+    .btn_purchase{
+        font-size: 0.8em;
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        border-bottom: 4px solid #B93838;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        display: inline-block;
+        outline: none;
+        text-transform: uppercase;
+        border-right: none;
+        border-left: none;
+        border-top: none;
+        margin-top: 7%;
+    }
+
+    .leftSection{
+        padding-top: 3%;
+        padding-left:8%;
+        width: 110%;
+        float:none;
+    }
+
+    .infoSection{
+        margin: 5% 0;
+        font-size: 0.8em;
+        width: 40%;
+    }
+} 
+*/
+
+.leftSection, .rightSection {
+	float: left;
+}
+
+.leftSection {
+	overflow: auto;
+	padding-top: 3%;
+	padding-left: 5%;
+	width: 50%;
+}
+
+.rightSection {
+	margin-top: 7em;
+	margin-left: 5em;
+	padding: 2%;
+	width: 320px;
+	height: 150px;
+	border: solid 1px #EEE;
+	position: absolute;
+	left: 50%;
+	position: fixed;
+}
+
+.priceInfo {
+	width: 25%;
+	height: 20%;
+	position: fixed;
+}
+
+.btn_purchase {
+	background: #E45D5D;
+	color: #FFF;
+	font-size: 0.8em;
+	width: 100%;
+	height: 20%;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	margin-top: 7%;
+}
+
+.btn_purchase:hover {
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
+
+.cartList {
+	float: left;
+	width: 90%;
+	border: solid 1px #EEE;
+	margin: 0.5em 0;
+}
+
+.list {
+	padding: 0.5em;
+}
+
+.priceInfoTable {
+	width: 100%;
+}
+
+.priceInfoTable tr th {
+	text-align: left;
+	width: 50%;
+}
+
+.priceInfoTable tr td {
+	text-align: right;
+	padding: 2%;
+	width: 50%;
+}
+
+.mainTitle {
+	width: 90%;
+	font-size: 24px;
+	font-style: Bold;
+}
+
+.fimg-cont {
+	float: left;
+	width: 150px;
+	height: 150px;
+}
+
+.productImage {
+	width: 100%;
+	border: solid 1px #EEE;
+}
+
+.infoSection {
+	float: right;
+	margin: 2%;
+	width: 60%;
+	height: 50%;
+}
+
+.ccontainer {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.ccontainer input {
+	position: relative;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkForDelete {
+	display: block;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	position: relative;
+	float: right;
+	border-radius: 5px;
+	margin-top: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.ccontainer:hover input ~ .checkForDelete {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.ccontainer input:checked ~ .checkForDelete {
+	background-color: #fa7f94;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkForDelete:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.ccontainer input:checked ~ .checkForDelete:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.ccontainer .checkForDelete:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.deleteBtn {
+	float: right;
+	margin-top: 10%;
+	background: #E45D5D;
+	color: #FFF;
+	font-size: 0.5em;
+	padding: 0.7em 1.2em;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+}
+
+.deleteBtn:hover {
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
+
+
+.infoSection ul li{
+	padding: 2%;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+	.wrap {
+		width: 80%;
+	}
+	.rightSection {
+		position: initial;
+		margin-top: 3em;
+		margin-left: 8%;
+		padding: 2%;
+		border: solid 1px #EEE;
+		float: none;
+		width: 85%;
+		height: 55%;
+	}
+	.deleteBtn {
+	}
+	.main_title {
+		max-width: 100%;
+	}
+	.mainTitle {
+		width: 100%;
+		font-size: 24px;
+		font-style: Bold;
+	}
+	.priceInfo {
+		width: 100%;
+		position: initial;
+	}
+	.btn_purchase {
+		font-size: 0.8em;
+		width: 100%;
+		height: 30px;
+		border-radius: 5px;
+		border-bottom: 4px solid #B93838;
+		transition: 0.5s all;
+		-webkit-transition: 0.5s all;
+		-moz-transition: 0.5s all;
+		-o-transition: 0.5s all;
+		display: inline-block;
+		outline: none;
+		text-transform: uppercase;
+		border-right: none;
+		border-left: none;
+		border-top: none;
+		margin-top: 7%;
+	}
+	.leftSection {
+		padding-top: 3%;
+		padding-left: 8%;
+		width: 90%;
+		float: none;
+	}
+	.infoSection {
+		float: left;
+		margin: 0 0;
+		font-size: 0.8em;
+		width: 56%;
+		height: 100%;
+	}
+	.each img {
+		width: 100%;
+		float: left;
+		margin: 0;
+		overflow: hidden;
+	}
+	.fimg-cont {
+		width: 37%;
+		padding: 0.1em 0.2em;
+		margin: 0;
+	}
+	.cartList {
+		width: 100%;
+		border: solid 1px #EEE;
+		margin-bottom: 0.5em;
+	}
+	.cartList ul li {
+		float: left;
+		margin: 0.2em 0;
+	}
+	.list {
+		padding: 0.5em 0.4em;
+	}
+	.ccontainer {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		cursor: pointer;
+		font-size: 22px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	/* Create a custom checkbox */
+	.checkForDelete {
+		display: block;
+		top: 0;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		background-color: #eee;
+		position: relative;
+		float: right;
+		border-radius: 5px;
+		margin-top: 1em;
+	}
+	
+	.each{
+		width: 300px;
+		height: 160px;
+	}
+}
